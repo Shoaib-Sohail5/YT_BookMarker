@@ -20,7 +20,16 @@
         });
     };
 
+    const addNewBookmarkEventHandler = async () => {
+        const currentTime = youtubePlayer.currentTime;
+        const newBookmark = {
+          time: currentTime,
+          desc: "Bookmark at " + getTime(currentTime),
+        };
     
+        currentVideoBookmarks = await fetchBookmarks();
+    
+
     const newVideoLoaded = () => {
         const bookmarkBtnExists = document.getElementsByClassName("bookmark-btn")[0];
         console.log(bookmarkBtnExists);
