@@ -12,6 +12,15 @@
         }
     });
 
+    const fetchBookmarks = () => {
+        return new Promise((resolve) => {
+          chrome.storage.sync.get([currentVideo], (obj) => {
+            resolve(obj[currentVideo] ? JSON.parse(obj[currentVideo]) : []);
+          });
+        });
+    };
+
+    
     const newVideoLoaded = () => {
         const bookmarkBtnExists = document.getElementsByClassName("bookmark-btn")[0];
         console.log(bookmarkBtnExists);
